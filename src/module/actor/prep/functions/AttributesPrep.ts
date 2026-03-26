@@ -14,13 +14,13 @@ export class AttributesPrep {
     static prepareAttributes(system: SR5Actor['system'], ranges?: Record<string, {min: number, max?: number}>) {
         const {attributes} = system;
 
-        // hide magic and resonance based on the actor's special property
-        attributes.magic.hidden = system.special !== 'magic';
-        attributes.resonance.hidden = system.special !== 'resonance';
-
-        // always hide edge and essence, we display these separately
-        attributes.edge.hidden = true;
+        // 무한성광류: hide magic, resonance and essence as they are not used
+        attributes.magic.hidden = true;
+        attributes.resonance.hidden = true;
         attributes.essence.hidden = true;
+
+        // 무한성광류: edge is now 냉정 (Composure), a regular attribute - don't hide it
+        attributes.edge.hidden = false;
 
         // set the value for the attributes
         for (const [name, attribute] of Object.entries(attributes))

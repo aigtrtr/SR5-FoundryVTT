@@ -10,8 +10,12 @@ export const MentalAttribute = new StringField({
     choices: SR5.mentalAttributes,
 });
 
+export const SocialAttribute = new StringField({
+    choices: SR5.socialAttributes,
+});
+
 export const SpecialAttribute = new StringField({
-    choices: ['edge', 'essence', 'magic', 'resonance'],
+    choices: ['essence', 'magic', 'resonance'],
 });
 
 export const MatrixAttribute = new StringField({

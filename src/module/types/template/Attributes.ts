@@ -21,20 +21,24 @@ const EdgeAttributeField = () => ({
     max: new NumberField({ required: true, nullable: false, integer: true, initial: 0, min: 0 }),
 });
 
+// 무한성광류 TRPG: 9 attributes in 3 categories
+// 신체 (Body): 근력(body), 민첩(agility), 건강(reaction)
+// 정신 (Mind): 지능(strength), 통찰(willpower), 정신(logic)
+// 교류 (Social): 매력(intuition), 조작(charisma), 냉정(edge)
 export const Attributes = () => ({
-    body: new ModifiableField(AttributeField("physical")),
-    agility: new ModifiableField(AttributeField("physical")),
-    reaction: new ModifiableField(AttributeField("physical")),
-    strength: new ModifiableField(AttributeField("physical")),
-    willpower: new ModifiableField(AttributeField("mental")),
-    logic: new ModifiableField(AttributeField("mental")),
-    intuition: new ModifiableField(AttributeField("mental")),
-    charisma: new ModifiableField(AttributeField("social")),
+    body: new ModifiableField(AttributeField("physical")),       // 근력 (Strength) - 신체
+    agility: new ModifiableField(AttributeField("physical")),    // 민첩 (Agility) - 신체
+    reaction: new ModifiableField(AttributeField("physical")),   // 건강 (Health) - 신체
+    strength: new ModifiableField(AttributeField("mental")),     // 지능 (Intelligence) - 정신
+    willpower: new ModifiableField(AttributeField("mental")),    // 통찰 (Insight) - 정신
+    logic: new ModifiableField(AttributeField("mental")),        // 정신 (Spirit) - 정신
+    intuition: new ModifiableField(AttributeField("social")),    // 매력 (Charisma) - 교류
+    charisma: new ModifiableField(AttributeField("social")),     // 조작 (Manipulation) - 교류
     magic: new ModifiableField(AttributeField("mental")),
     resonance: new ModifiableField(AttributeField("mental")),
     essence: new ModifiableField(AttributeField()),
 
-    edge: new ModifiableField(EdgeAttributeField()),
+    edge: new ModifiableField(EdgeAttributeField()),             // 냉정 (Composure) - 교류
 });
 
 // MatrixActorAttributes are all the attributes an actor should have to work in the matrix

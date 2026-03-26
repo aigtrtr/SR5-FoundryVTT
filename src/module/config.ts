@@ -48,23 +48,24 @@ export const SR5 = {
     },
 
     // All available attributes. These are available as testable attributes across all actor types.
+    // 무한성광류 TRPG: 9 attributes in 3 categories (신체/정신/교류)
     attributes: {
-        agility: 'SR5.AttrAgility',
-        attack: 'SR5.MatrixAttrAttack',
-        body: 'SR5.AttrBody',
-        charisma: 'SR5.AttrCharisma',
-        data_processing: 'SR5.MatrixAttrDataProc',
-        edge: 'SR5.AttrEdge',
-        essence: 'SR5.AttrEssence',
-        firewall: 'SR5.MatrixAttrFirewall',
-        intuition: 'SR5.AttrIntuition',
-        logic: 'SR5.AttrLogic',
+        body: 'SR5.AttrBody',           // 근력 (Strength) - 신체
+        agility: 'SR5.AttrAgility',     // 민첩 (Agility) - 신체
+        reaction: 'SR5.AttrReaction',   // 건강 (Health) - 신체
+        strength: 'SR5.AttrStrength',   // 지능 (Intelligence) - 정신
+        willpower: 'SR5.AttrWillpower', // 통찰 (Insight) - 정신
+        logic: 'SR5.AttrLogic',         // 정신 (Spirit) - 정신
+        intuition: 'SR5.AttrIntuition', // 매력 (Charisma) - 교류
+        charisma: 'SR5.AttrCharisma',   // 조작 (Manipulation) - 교류
+        edge: 'SR5.AttrEdge',           // 냉정 (Composure) - 교류
         magic: 'SR5.AttrMagic',
-        reaction: 'SR5.AttrReaction',
         resonance: 'SR5.AttrResonance',
+        essence: 'SR5.AttrEssence',
+        attack: 'SR5.MatrixAttrAttack',
+        data_processing: 'SR5.MatrixAttrDataProc',
+        firewall: 'SR5.MatrixAttrFirewall',
         sleaze: 'SR5.MatrixAttrSleaze',
-        strength: 'SR5.AttrStrength',
-        willpower: 'SR5.AttrWillpower',
         pilot: 'SR5.Vehicle.Stats.Pilot',
         force: 'SR5.Force',
         initiation: 'SR5.Initiation',
@@ -72,8 +73,12 @@ export const SR5 = {
         rating: 'SR5.Rating',
     },
 
-    mentalAttributes: ['charisma', 'intuition', 'logic', 'willpower'],
-    physicalAttributes: ['agility', 'body', 'reaction', 'strength'],
+    // 무한성광류: 신체 (Body) attributes
+    physicalAttributes: ['body', 'agility', 'reaction'],
+    // 무한성광류: 정신 (Mind) attributes
+    mentalAttributes: ['strength', 'willpower', 'logic'],
+    // 무한성광류: 교류 (Social) attributes
+    socialAttributes: ['intuition', 'charisma', 'edge'],
 
     /**
      * All labels for all limits used across all actor and item types.
@@ -528,95 +533,36 @@ export const SR5 = {
     },
 
     activeSkills: {
-        // Combat Skills
-        archery: 'SR5.Skill.Archery',
-        automatics: 'SR5.Skill.Automatics',
-        blades: 'SR5.Skill.Blades',
-        clubs: 'SR5.Skill.Clubs',
-        exotic_melee_weapon: 'SR5.Skill.ExoticMeleeWeapon',
-        exotic_ranged_weapon: 'SR5.Skill.ExoticRangedWeapon',
-        heavy_weapons: 'SR5.Skill.HeavyWeapons',
-        longarms: 'SR5.Skill.Longarms',
-        pistols: 'SR5.Skill.Pistols',
-        throwing_weapons: 'SR5.Skill.ThrowingWeapons',
-        unarmed_combat: 'SR5.Skill.UnarmedCombat',
+        // 무한성광류: 신체 (Body) Skills
+        gymnastics: 'SR5.Skill.Gymnastics',           // 운동 (Athletics)
+        unarmed_combat: 'SR5.Skill.UnarmedCombat',    // 격투 (Combat)
+        pilot_ground_craft: 'SR5.Skill.PilotGroundCraft', // 운전 (Driving)
+        pistols: 'SR5.Skill.Pistols',                 // 총기 (Firearms)
+        locksmith: 'SR5.Skill.Locksmith',              // 손재주 (Dexterity)
+        sneaking: 'SR5.Skill.Sneaking',                // 은폐 (Stealth)
+        survival: 'SR5.Skill.Survival',                // 생존 (Survival)
+        blades: 'SR5.Skill.Blades',                    // 백병전 (Melee)
 
-        // Physical Skills
-        disguise: 'SR5.Skill.Disguise',
-        diving: 'SR5.Skill.Diving',
-        escape_artist: 'SR5.Skill.EscapeArtist',
-        flight: 'SR5.Skill.Flight',
-        free_fall: 'SR5.Skill.FreeFall',
-        gymnastics: 'SR5.Skill.Gymnastics',
-        palming: 'SR5.Skill.Palming',
-        perception: 'SR5.Skill.Perception',
-        running: 'SR5.Skill.Running',
-        sneaking: 'SR5.Skill.Sneaking',
-        survival: 'SR5.Skill.Survival',
-        swimming: 'SR5.Skill.Swimming',
-        tracking: 'SR5.Skill.Tracking',
+        // 무한성광류: 정신 (Mind) Skills
+        arcana: 'SR5.Skill.Arcana',                    // 학식 (Knowledge)
+        computer: 'SR5.Skill.Computer',                // 컴퓨터 (Computer)
+        artisan: 'SR5.Skill.Artisan',                  // 수공예 (Craft)
+        perception: 'SR5.Skill.Perception',            // 수사 (Investigation)
+        medicine: 'SR5.Skill.Medicine',                // 의학 (Medicine)
+        spellcasting: 'SR5.Skill.Spellcasting',        // 신비학 (Occult)
+        hardware: 'SR5.Skill.Hardware',                // 과학 (Science)
 
-        // Social Skills
-        con: 'SR5.Skill.Con',
-        etiquette: 'SR5.Skill.Etiquette',
-        impersonation: 'SR5.Skill.Impersonation',
-        instruction: 'SR5.Skill.Instruction',
-        intimidation: 'SR5.Skill.Intimidation',
-        leadership: 'SR5.Skill.Leadership',
-        negotiation: 'SR5.Skill.Negotiation',
-        performance: 'SR5.Skill.Performance',
+        // 무한성광류: 교류 (Social) Skills
+        animal_handling: 'SR5.Skill.AnimalHandling',   // 동물 교감 (Animal Empathy)
+        assensing: 'SR5.Skill.Assensing',              // 감수성 (Sensitivity)
+        performance: 'SR5.Skill.Performance',          // 표현 (Expression)
+        intimidation: 'SR5.Skill.Intimidation',        // 협박 (Intimidation)
+        etiquette: 'SR5.Skill.Etiquette',              // 사교 (Socializing)
+        disguise: 'SR5.Skill.Disguise',                // 위장 (Disguise)
 
-        // Magic Skills
-        alchemy: 'SR5.Skill.Alchemy',
-        arcana: 'SR5.Skill.Arcana',
-        artificing: 'SR5.Skill.Artificing',
-        assensing: 'SR5.Skill.Assensing',
-        astral_combat: 'SR5.Skill.AstralCombat',
-        banishing: 'SR5.Skill.Banishing',
-        binding: 'SR5.Skill.Binding',
-        counterspelling: 'SR5.Skill.Counterspelling',
-        disenchanting: 'SR5.Skill.Disenchanting',
-        ritual_spellcasting: 'SR5.Skill.RitualSpellcasting',
-        spellcasting: 'SR5.Skill.Spellcasting',
-        summoning: 'SR5.Skill.Summoning',
-
-        // Resonance Skills
-        compiling: 'SR5.Skill.Compiling',
-        decompiling: 'SR5.Skill.Decompiling',
-        registering: 'SR5.Skill.Registering',
-
-        // Technical Skills
-        aeronautics_mechanic: 'SR5.Skill.AeronauticsMechanic',
-        automotive_mechanic: 'SR5.Skill.AutomotiveMechanic',
-        industrial_mechanic: 'SR5.Skill.IndustrialMechanic',
-        nautical_mechanic: 'SR5.Skill.NauticalMechanic',
-        animal_handling: 'SR5.Skill.AnimalHandling',
-        armorer: 'SR5.Skill.Armorer',
-        artisan: 'SR5.Skill.Artisan',
-        biotechnology: 'SR5.Skill.Biotechnology',
-        chemistry: 'SR5.Skill.Chemistry',
-        computer: 'SR5.Skill.Computer',
-        cybercombat: 'SR5.Skill.Cybercombat',
-        cybertechnology: 'SR5.Skill.Cybertechnology',
-        demolitions: 'SR5.Skill.Demolitions',
-        electronic_warfare: 'SR5.Skill.ElectronicWarfare',
-        first_aid: 'SR5.Skill.FirstAid',
-        forgery: 'SR5.Skill.Forgery',
-        hacking: 'SR5.Skill.Hacking',
-        hardware: 'SR5.Skill.Hardware',
-        locksmith: 'SR5.Skill.Locksmith',
-        medicine: 'SR5.Skill.Medicine',
-        navigation: 'SR5.Skill.Navigation',
-        software: 'SR5.Skill.Software',
-
-        // Vehicle Skills
-        gunnery: 'SR5.Skill.Gunnery',
-        pilot_aerospace: 'SR5.Skill.PilotAerospace',
-        pilot_aircraft: 'SR5.Skill.PilotAircraft',
-        pilot_walker: 'SR5.Skill.PilotWalker',
-        pilot_ground_craft: 'SR5.Skill.PilotGroundCraft',
-        pilot_watercraft: 'SR5.Skill.PilotWatercraft',
-        pilot_exotic_vehicle: 'SR5.Skill.PilotExoticVehicle',
+        // 무한성광류: 기타 (Other) Skills
+        con: 'SR5.Skill.Con',                          // 기타1 (Other 1)
+        negotiation: 'SR5.Skill.Negotiation',          // 기타2 (Other 2)
     },
 
     /**
