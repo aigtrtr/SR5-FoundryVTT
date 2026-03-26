@@ -25,10 +25,13 @@ export class LimitsPrep {
     static prepareLimitBaseFromAttributes(system: Actor.SystemOfType<'character' | 'spirit'>) {
         const { limits, attributes } = system;
 
-        // Default limits are derived directly from attributes.
-        limits.physical.base = Math.ceil((2 * attributes.strength.value + attributes.body.value + attributes.reaction.value) / 3);
-        limits.mental.base = Math.ceil((2 * attributes.logic.value + attributes.intuition.value + attributes.willpower.value) / 3);
-        limits.social.base = Math.ceil((2 * attributes.charisma.value + attributes.willpower.value + attributes.essence.value) / 3);
+        // 무한성광류: Limits derived from attributes
+        // Physical limit → 기본 방어 (Base Defense) = min(민첩/agility, 통찰/willpower)
+        limits.physical.base = Math.min(attributes.agility.value, attributes.willpower.value);
+        // Mental limit → 감지 범위 기반 (Detection-based) = 통찰(willpower) * 2
+        limits.mental.base = attributes.willpower.value * 2;
+        // Social limit → 의지력 기반 (Willpower-based) = 정신(logic) + 냉정(edge)
+        limits.social.base = attributes.logic.value + attributes.edge.value;
     }
 
     /**

@@ -23,17 +23,18 @@ export class InitiativePrep {
         // Apply edge ini rules.
         initiative.current.dice.value = Helpers.calcTotal(initiative.current.dice, {min: 0, max: 5});
         if (initiative.edge) initiative.current.dice.value = 5;
-        initiative.current.dice.value = Math.min(5, initiative.current.dice.value); // maximum of 5d6 for initiative
-        initiative.current.dice.text = `${initiative.current.dice.value}d6`;        
+        initiative.current.dice.value = Math.min(5, initiative.current.dice.value); // maximum of 5d10 for initiative
+        initiative.current.dice.text = `${initiative.current.dice.value}d10`;        
     }
 
     /**
-     * Physical initiative
+     * Physical initiative (선제 = 민첩 + 냉정)
+     * 무한성광류: Initiative = Agility(민첩) + Composure(냉정)
      */
     static prepareMeatspaceInit(system: Actor.SystemOfType<'character' | 'spirit' | 'vehicle'>) {
         const { initiative, attributes, modifiers } = system;
 
-        initiative.meatspace.base.base = attributes.intuition.value + attributes.reaction.value;
+        initiative.meatspace.base.base = attributes.agility.value + attributes.edge.value;
         initiative.meatspace.base.mod = PartsList.AddUniquePart(initiative.meatspace.base.mod, "SR5.Bonus", Number(modifiers['meat_initiative']));
         initiative.meatspace.base.value = Helpers.calcTotal(initiative.meatspace.base);
 
@@ -45,7 +46,8 @@ export class InitiativePrep {
     static prepareAstralInit(system: Actor.SystemOfType<'character' | 'spirit'>) {
         const { initiative, attributes, modifiers } = system;
 
-        initiative.astral.base.base = attributes.intuition.value * 2;
+        // 무한성광류: Astral initiative uses same formula as meatspace
+        initiative.astral.base.base = attributes.agility.value + attributes.edge.value;
         initiative.astral.base.mod = PartsList.AddUniquePart(initiative.astral.base.mod, "SR5.Bonus", Number(modifiers['astral_initiative']));
         initiative.astral.base.value = Helpers.calcTotal(initiative.astral.base);
 
@@ -58,7 +60,7 @@ export class InitiativePrep {
         const { initiative, attributes, modifiers, matrix } = system;
         if (matrix) {
 
-            initiative.matrix.base.base = attributes.intuition.value + system.matrix.data_processing.value;
+            initiative.matrix.base.base = attributes.strength.value + system.matrix.data_processing.value;
             initiative.matrix.base.mod = PartsList.AddUniquePart(initiative.matrix.base.mod, "SR5.Bonus", Number(modifiers['matrix_initiative']));
             initiative.matrix.base.value = Helpers.calcTotal(initiative.matrix.base);
 
