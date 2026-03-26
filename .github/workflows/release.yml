@@ -36,12 +36,12 @@ jobs:
                   npm ci
                   gulp build
                   npm run build:db
-                  zip -r ./shadowrun5e.zip system.json template.json LICENSE README.md README-DEV.md dist/ packs/ --exclude "packs/_source/*"
+                  zip -r ./shadowrun5e.zip system.json LICENSE README.md README-DEV.md dist/ packs/ --exclude "packs/_source/*"
 
             - name: Update Release with Files
               uses: ncipollo/release-action@v1
               with:
-                  makeLatest: false # Must be false, to allow test releases using this workflow.
+                  makeLatest: true
                   allowUpdates: true # Must be true, to allow updating existing releases
                   name: ${{ github.event.release.name }}
                   draft: false
