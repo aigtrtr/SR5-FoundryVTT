@@ -1,11 +1,11 @@
 # Shadowrun5e for Foundry Virtual Tabletop
-[Manifest](https://raw.githubusercontent.com/SR5-FoundryVTT/SR5-FoundryVTT/master/system.json)
+[Manifest](https://github.com/aigtrtr/SR5-FoundryVTT/releases/latest/download/system.json)
 
 Come on the FoundryVTT discord shadowrun5e channel and have a chat. :)
 
 We will always be happy to look at a Pull Request if there are features or bugs you'd like to work on.
 
-Should you need an older version you can check [releases](https://github.com/SR5-FoundryVTT/SR5-FoundryVTT/releases) and reference the system.json on each release instead of FoundryVTTs system marketplace.
+Should you need an older version you can check [releases](https://github.com/aigtrtr/SR5-FoundryVTT/releases) and reference the system.json on each release instead of FoundryVTTs system marketplace.
 
 ## General Information (read before playing)
 It's complicated, it's a work in progress, but it is _kinda_ stable. We try to break as little as possible.
@@ -25,9 +25,9 @@ To learn more about the features of the system and how to use them, please visit
 Found some problem? Please report it in our issue tracker or [on discord](https://discord.com/channels/170995199584108546/715689255606681660).
 
 ## Want to help out?
-Great, thanks :) Please check [this wiki](https://github.com/SR5-FoundryVTT/SR5-FoundryVTT/wiki/How-to-help-out) for more information.
+Great, thanks :) Please check [this wiki](https://github.com/aigtrtr/SR5-FoundryVTT/wiki/How-to-help-out) for more information.
 
-There is also the [README-dev.md](https://github.com/SR5-FoundryVTT/SR5-FoundryVTT/blob/master/README-DEV.md) for development.
+There is also the [README-dev.md](https://github.com/aigtrtr/SR5-FoundryVTT/blob/master/README-DEV.md) for development.
 
 ## Licenses
 

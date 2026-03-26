@@ -20,7 +20,7 @@
             "discord": "T.J."
         }
     ],
-    "url": "#{URL}#",
+    "url": "https://github.com/aigtrtr/SR5-FoundryVTT",
     "version": "0.32.4",
     "compatibility": {
         "minimum": "13",
@@ -226,8 +226,8 @@
         }
     ],
     "socket": true,
-    "manifest": "#{MANIFEST}#",
-    "download": "#{DOWNLOAD}#",
+    "manifest": "https://github.com/aigtrtr/SR5-FoundryVTT/releases/latest/download/system.json",
+    "download": "https://github.com/aigtrtr/SR5-FoundryVTT/releases/latest/download/shadowrun5e.zip",
     "protected": false,
     "initiative": "@initiative.current.base.value + @initiative.current.dice.text - @wounds.value",
     "grid": {
